@@ -50,6 +50,38 @@ const ContactForm = () => {
           <label htmlFor="message" data-testid="message">Message</label>
           <textarea name="message" ref={register({ required: false })} />
         </div>
+        <div className='pets'>
+          <h4>Are You a Cat Person and / or a Dog Person??</h4>
+          <div className='choices'>
+            <label>
+              Cat
+              <input
+                data-testid="catCheckbox"
+                name='cat'
+                type='checkbox'
+                ref={register({ required: false })}
+              ></input>
+            </label>
+            <label>
+              Dog
+              <input
+                data-testid="dogCheckbox"
+                name='dog'
+                type='checkbox'
+                ref={register({ required: false })}
+              ></input>
+            </label>
+            <label>
+              No Pets
+              <input
+                data-testid="noCheckbox"
+                name='none'
+                type='checkbox'
+                ref={register({ required: false })}
+              ></input>
+            </label>
+          </div>
+        </div>
         {data && (
           <pre data-testid="displayData" style={{ textAlign: "left", color: "white" }}>
             {JSON.stringify(data, null, 2)}

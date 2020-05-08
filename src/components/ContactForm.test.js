@@ -25,6 +25,18 @@ test('Form can be filled in and submitted', ()=>{
     const message = getByTestId(/message/i);
     expect(message).toBeInTheDocument();
 
+    const cat = getByTestId(/catcheckbox/i);
+    expect(cat).toBeInTheDocument();
+    fireEvent.click(cat)
+
+    const dog = getByTestId(/dogcheckbox/i);
+    expect(dog).toBeInTheDocument();
+    fireEvent.click(dog)
+
+    const none = getByTestId(/nocheckbox/i);
+    expect(none).toBeInTheDocument();
+    fireEvent.click(none)
+
     const button = getByTestId(/submitbtn/i)
     expect(button).toBeInTheDocument();
     fireEvent.click(button)
@@ -32,5 +44,5 @@ test('Form can be filled in and submitted', ()=>{
     setTimeout(()=>{
         const data = getByTestId(/displaydata/i)
         expect(data).toBeInTheDocument();
-   }, 1)
+    }, 1)
 })
