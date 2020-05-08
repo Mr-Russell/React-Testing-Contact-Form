@@ -12,15 +12,15 @@ test('Form can be filled in and submitted', ()=>{
 
     const firstName = getByPlaceholderText(/edd/i);
     expect(firstName).toBeInTheDocument();
-    fireEvent.change(firstName, {target: {value: 'Yo' } })
+    fireEvent.change(firstName, {target: {value: 'Jeff' } })
 
     const lastName = getByPlaceholderText(/burke/i);
     expect(lastName).toBeInTheDocument();
-    fireEvent.change(lastName, {target: {value: 'Mama' } })
+    fireEvent.change(lastName, {target: {value: 'Lebowski' } })
 
     const email = getByTestId(/email/i);
     expect(email).toBeInTheDocument();
-    fireEvent.change(email, {target: {value: 'yomama@me.com' } })
+    fireEvent.change(email, {target: {value: 'jeff@lebowski.com' } })
 
     const message = getByTestId(/message/i);
     expect(message).toBeInTheDocument();
