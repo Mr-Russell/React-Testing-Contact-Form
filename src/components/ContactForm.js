@@ -18,7 +18,7 @@ const ContactForm = () => {
           <input
             name="firstName"
             placeholder="Edd"
-            ref={register({ required: true, maxLength: 3 })}
+            ref={register({ required: true, minLength: 3 })}
           />
           {errors.firstName && (
             <p>Looks like there was an error: {errors.firstName.type}</p>
@@ -41,21 +41,53 @@ const ContactForm = () => {
           <label htmlFor="email" placeholder="bluebill1049@hotmail.com">
             Email*
           </label>
-          <input name="email" ref={register({ required: true })} />
+          <input name="email" ref={register({ required: true })} data-testid="email"/>
           {errors.email && (
             <p>Looks like there was an error: {errors.email.type}</p>
           )}
         </div>
         <div>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message" data-testid="message">Message</label>
           <textarea name="message" ref={register({ required: false })} />
         </div>
+        <div className='pets'>
+          <h4>Are You a Cat Person and / or a Dog Person??</h4>
+          <div className='choices'>
+            <label>
+              Cat
+              <input
+                data-testid="catCheckbox"
+                name='cat'
+                type='checkbox'
+                ref={register({ required: false })}
+              ></input>
+            </label>
+            <label>
+              Dog
+              <input
+                data-testid="dogCheckbox"
+                name='dog'
+                type='checkbox'
+                ref={register({ required: false })}
+              ></input>
+            </label>
+            <label>
+              No Pets
+              <input
+                data-testid="noCheckbox"
+                name='none'
+                type='checkbox'
+                ref={register({ required: false })}
+              ></input>
+            </label>
+          </div>
+        </div>
         {data && (
-          <pre style={{ textAlign: "left", color: "white" }}>
+          <pre data-testid="displayData" style={{ textAlign: "left", color: "white" }}>
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
-        <input type="submit" />
+        <input type="submit" data-testid="submitBtn"/>
       </form>
     </div>
   );
